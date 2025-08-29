@@ -1,0 +1,15 @@
+{
+  "name": "opensynergic/laravel-sso",
+  "description": "Laravel SSO Laravel Library Package",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "OpenSynergic\\LaravelSSO\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.0",
+    "laravel/framework": "^10.0"
+  }
+}
