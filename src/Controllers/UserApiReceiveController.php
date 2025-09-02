@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OpenSynergic\LaravelSSO\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
 class UserApiReceiveController extends Controller
 {
-    public function index()
+    public function userApiReceive()
     {
         $apiUrl = config('laravelsso.portal') . '/api/users';
         $apiToken = config('laravelsso.api_token'); // Simpan ini di file .env untuk keamanan
