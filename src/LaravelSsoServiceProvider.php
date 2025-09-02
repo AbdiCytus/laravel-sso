@@ -16,10 +16,5 @@ class LaravelSsoServiceProvider extends ServiceProvider
     {
         // Views
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'unauthorized');
-
-        // Config publish
-        $this->publishes([
-            __DIR__ . '/../config/laravelsso.php' => config_path('laravelsso.php'),
-        ], 'laravelsso-config');
     }
 }
