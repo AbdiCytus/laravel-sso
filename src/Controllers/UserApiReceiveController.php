@@ -7,9 +7,15 @@ use Illuminate\Support\Facades\Http;
 
 class UserApiReceiveController extends Controller
 {
-    public function userApiReceive()
+    public function users($userId)
     {
-        $apiUrl = config('laravelsso.portal') . '/api/users';
+        $param = '/api/users';
+
+        if($userId) {
+            $param = '/api/users/' . $userId;
+        }
+
+        $apiUrl = config('laravelsso.portal') . $param;
         $apiToken = config('laravelsso.api_token'); // Simpan ini di file .env untuk keamanan
 
         $response = Http::withToken($apiToken)->acceptJson()->get($apiUrl);
