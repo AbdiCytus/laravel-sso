@@ -4,4 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use OpenSynergic\LaravelSSO\Controllers\AppReceiveController;
 
-Route::post('/receive-app', [AppReceiveController::class, 'appReceive']);
+Route::prefix('api')->middleware('api')->group(function () {
+    Route::post('/receive-app', [AppReceiveController::class, 'appReceive']);
+});

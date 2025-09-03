@@ -5,4 +5,4 @@ use OpenSynergic\LaravelSSO\Controllers\UserApiReceiveController;
 use OpenSynergic\LaravelSSO\Controllers\UserReceiveController;
 
 Route::get('receive-user', [UserReceiveController::class, 'userReceive']);
-Route::get('user/{$id}', [UserApiReceiveController::class, 'users']);
+Route::get('user/{id?}', [UserApiReceiveController::class, 'users']);
