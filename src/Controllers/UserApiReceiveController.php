@@ -7,24 +7,30 @@ use Illuminate\Support\Facades\Http;
 
 class UserApiReceiveController extends Controller
 {
-    public function users($userId)
+    public function users($id = null)
     {
-        $param = '/api/users';
-
-        if($userId) {
-            $param = '/api/users/' . $userId;
+        if ($id) {
+            $param = '/api/users/' . $id;
+            $defaultData = null;
+        } else {
+            $param = '/api/users';
+            $defaultData = [];
         }
 
         $apiUrl = config('laravelsso.portal') . $param;
-        $apiToken = config('laravelsso.api_token'); // Simpan ini di file .env untuk keamanan
+        $apiToken = config('laravelsso.api_token');
 
         $response = Http::withToken($apiToken)->acceptJson()->get($apiUrl);
 
-        $users = [];
+        $data = $defaultData;
         if ($response->successful()) {
-            $users = $response->json('data', []); // Ambil array 'data', default ke array kosong jika tidak ada
+            $data = $response->json('data', $defaultData);
         }
-        // Kirim data user ke view
-        return response()->json($users);
+
+        if ($response->notFound()) {
+            return response()->json(['message' => 'User not found.'], 404);
+        }
+
+        return response()->json($data);
     }
 }

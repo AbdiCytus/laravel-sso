@@ -14,6 +14,9 @@ class LaravelSsoServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        //Routes
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
         // Views
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'unauthorized');
     }
