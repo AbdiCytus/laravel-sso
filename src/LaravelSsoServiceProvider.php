@@ -4,6 +4,7 @@ namespace OpenSynergic\LaravelSSO;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use OpenSynergic\LaravelSSO\Middleware\ClientKeyMiddleware;
 
 class LaravelSsoServiceProvider extends ServiceProvider
 {
@@ -14,9 +15,11 @@ class LaravelSsoServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->app['router']->aliasMiddleware('client_api_key', ClientKeyMiddleware::class);
+
         //Routes
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
         // Views
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'unauthorized');
     }
