@@ -18,7 +18,6 @@ class LaravelSsoServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['router']->aliasMiddleware('client_api_key', ClientKeyMiddleware::class);
-        $this->app['router']->aliasMiddleware('internal.auth', InternalAuth::class);
 
         //Routes
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
