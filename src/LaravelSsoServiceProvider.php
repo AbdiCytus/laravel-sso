@@ -5,9 +5,11 @@ namespace OpenSynergic\LaravelSSO;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use OpenSynergic\LaravelSSO\Middleware\ClientKeyMiddleware;
+use OpenSynergic\LaravelSSO\Middleware\InternalAuth;
 
 class LaravelSsoServiceProvider extends ServiceProvider
 {
+
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/laravelsso.php', 'laravelsso');
@@ -16,6 +18,7 @@ class LaravelSsoServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['router']->aliasMiddleware('client_api_key', ClientKeyMiddleware::class);
+        $this->app['router']->aliasMiddleware('internal.auth', InternalAuth::class);
 
         //Routes
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');

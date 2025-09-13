@@ -7,4 +7,8 @@ use OpenSynergic\LaravelSSO\Controllers\UserReceiveController;
 Route::middleware(['web'])->group(function () {
     Route::get('receive-user', [UserReceiveController::class, 'userReceive']);
 });
-Route::get('user/{id?}', [UserApiReceiveController::class, 'users']);
+
+// routes/api.php
+Route::middleware('internal.auth')->group(function () {
+    Route::get('user/{id}', [UserApiReceiveController::class, 'users']);
+});
