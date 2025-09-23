@@ -15,7 +15,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "OpenSynergic\\LaravelSSO\\LaravelSSOServiceProvider"
+        "OpenSynergic\\LaravelSSO\\SSOServiceProvider"
       ]
     }
   }
