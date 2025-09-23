@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use OpenSynergic\LaravelSSO\Middleware\ClientKeyMiddleware;
 use OpenSynergic\LaravelSSO\Middleware\InternalAuth;
 
-class LaravelSsoServiceProvider extends ServiceProvider
+class LaravelSSOServiceProvider extends ServiceProvider
 {
 
     public function register()
