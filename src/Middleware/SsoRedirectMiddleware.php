@@ -11,6 +11,10 @@ class SsoRedirectMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
+        if (config('laravelsso.enabled') === false) {
+            return $next($request);
+        }
+        
         if (!auth()->check()) {
             $portalUrl = config('laravelsso.portal');
             Log::info('user:', ['user' => auth()->user()]);
