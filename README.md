@@ -33,7 +33,7 @@ SSO_PORTAL_URL=https://portal-example.com   #example
 SSO_SUCCESS_AUTH_REDIRECT=/dashboard        #example
 API_TOKEN=4P1t0k3n123KnfjO                  #example
 ```
-**API_TOKEN** bisa didapatkan dari aplikasi portal setelah aplikasi client didaftarkan.
+The **API_TOKEN** can be obtained from the portal application once the client app is registered.
 #
 Next, open **App/Providers/Filament/AdminPanelProvider.php**, and import the middleware from the package:
 
