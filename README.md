@@ -50,7 +50,7 @@ Then, replace the `authMiddleware` from **`Authenticate::class`** with **`SsoRed
 To disable the SSO feature in the client application, add the following variable to your **.env** file and set its value to **false**.
 This variable is optional (by default, SSO is enabled).
 
-`ENABLE SSO=false`
+`ENABLE_SSO=false`
 
 ## Portal API
 The portal application provides several API routes that can be accessed by the client application.
